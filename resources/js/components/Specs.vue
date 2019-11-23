@@ -37,7 +37,7 @@
             </section>
         </Card>
 
-        <Card class="box-card">
+        <Card class="box-card" v-if="childProductArray.length > 0">
             <div slot="header" class="clearfix">
                 <span>规格表格</span>
             </div>
