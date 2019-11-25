@@ -14,7 +14,7 @@ class FieldServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
         $this->publishes([
             __DIR__.'/../dist/fonts' => public_path('fonts'),

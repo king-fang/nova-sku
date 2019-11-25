@@ -39,17 +39,19 @@ export default {
          */
         fill(formData) {
             const field = this.field.attribute;
-            this.value.items.forEach((item, index) => {
-                formData.append(`${field}[items][${index}][productSpec]`,JSON.stringify(item.childProductSpec))
-                formData.append(`${field}[items][${index}][productStock]`,item.childProductStock)
-                formData.append(`${field}[items][${index}][productCost]`,item.childProductCost)
-                formData.append(`${field}[items][${index}][productPrice]`,item.childProductPrice)
-                formData.append(`${field}[items][${index}][productImage]`,item.image)
-            })
-            this.value.attrs.forEach((item, index) => {
-                formData.append(`${field}[attrs][${index}][name]`,item.name)
-                formData.append(`${field}[attrs][${index}][value]`,item.value)
-            })
+            if (this.value.attrs.length > 0) {
+                this.value.items.forEach((item, index) => {
+                    formData.append(`${field}[items][${index}][productSpec]`,JSON.stringify(item.childProductSpec))
+                    formData.append(`${field}[items][${index}][productStock]`,item.childProductStock)
+                    formData.append(`${field}[items][${index}][productCost]`,item.childProductCost)
+                    formData.append(`${field}[items][${index}][productPrice]`,item.childProductPrice)
+                    formData.append(`${field}[items][${index}][productImage]`,item.image)
+                })
+                this.value.attrs.forEach((item, index) => {
+                    formData.append(`${field}[attrs][${index}][name]`,item.name)
+                    formData.append(`${field}[attrs][${index}][value]`,item.value)
+                })
+            }
         },
 
         /**
