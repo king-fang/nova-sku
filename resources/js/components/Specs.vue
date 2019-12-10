@@ -108,7 +108,13 @@
                             @change="getFile($event,index)"
                             style="display: none"
                         >
-                        <Avatar v-if="childProductArray[index].imageUrl" shape="square" :size="30" :src="childProductArray[index].imageUrl"></Avatar>
+                        <img
+                            class="img-fluid img-thumbnail"
+                            v-if="childProductArray[index].imageUrl"
+                            :src="childProductArray[index].imageUrl"
+                            style="cursor: pointer;width:45px;"
+                            @click="onPickFile(index)"
+                        />
                         <i v-else @click="onPickFile(index)" style="cursor: pointer" class="el-icon-plus avatar-uploader-icon"></i>
                     </td>
                 </tr>
@@ -188,7 +194,7 @@
         return true
     }
     import 'element-ui/lib/theme-chalk/index.css';
-    import {Input, Button, Icon, Card, Divider, Tag, Avatar} from 'element-ui';
+    import {Input, Button, Icon, Card, Divider, Tag} from 'element-ui';
 
     export default {
         components: {
@@ -198,7 +204,6 @@
             Card,
             Divider,
             Tag,
-            Avatar
         },
         props: [
             'skuName', 'skuChildren', 'values'
